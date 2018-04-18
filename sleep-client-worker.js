@@ -1,5 +1,5 @@
 onmessage = function(e) {
-    var data = e.data[0];
+    var data = e.data[0].filter(function(d){ return d.measured_datapoints; });
     var sleepSessionIds = [...new Set(data.map(function(d){ return d.id; }))]
         .filter(function(d) { return d; });
     var updatedData = [];
